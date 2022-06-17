@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>K몰 온라인 스토어</title>
+    <!-- 웹폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome(폰트 아이콘) -->
+    <script src="https://kit.fontawesome.com/42bc809b80.js" crossorigin="anonymous"></script>
+    <!-- bx slider CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- bx slider JS -->
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/static/javascript/data.js" type="text/javascript"></script>
+    <script src="/static/javascript/main.js" type="text/javascript"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        .modal_overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(1.5px);
+        -webkit-backdrop-filter: blur(1.5px);
+        }
+
+        .modal_window {
+        background: white;
+        backdrop-filter: blur(13.5px);
+        -webkit-backdrop-filter: blur(13.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        width: 800px;
+        height: 600px;
+        position: relative;
+        padding: 10px;
+        }
+        .signup{
+		position: relative;
+		display: -ms-flexbox;
+		display: flex;
+		padding: 1rem;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		width: 100%;
+		pointer-events: auto;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid rgba(0,0,0,.2);
+		border-radius: 1.1rem;
+		outline: 0;
+		max-width: 500px;
+		 }
+
+        .mybtn{
+         border-radius:5px;
+         }
+
+    </style>
+
+</head>
+<body>
+<header id="main_header">
+    <div class="container">
+        <h1>
+            <a href="./index.html">
+                <img src="{% static 'images/logo2.png' %}" alt="B 몰">
+            </a>
+        </h1>
+        <!-- 검색창 -->
+        <form id="search_box">
+            <input
+                    type="text"
+                    placeholder="통합검색"
+            >
+            <button type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+
+        <!-- 유틸리티 메뉴 -->
+        <nav id="util_menu">
+            <a href="#" id="add_feed"><i class="fas fa-user"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fas fa-truck"></i></a>
+            <a href="#"><i class="fas fa-heart"></i></a>
+        </nav>
+    </div><!-- end container-->
+</header>
+
+<!-- 메인 GNB -->
+<nav id="main_gnb">
+    <div class="container">
+        <button id="category_btn">
+            <i class="fas fa-bars"></i>
+            <span>카테고리</span>
+        </button>
+
+        <ul>
+            <li><a href="#">파워딜</a></li>
+            <li><a href="#">K플라자</a></li>
+            <li><a href="#">브랜드</a></li>
+            <li><a href="#">베스트10</a></li>
+            <li><a href="#">쿠폰</a></li>
+            <li><a href="#">멤버십</a></li>
+            <li><a href="#">이벤트</a></li>
+            <li><a href="#">금주의행사</a></li>
+        </ul>
+    </div><!-- end container -->
+</nav>
+
+<!-- 카테고리 메뉴 목록 -->
+<nav id="category">
+    <div class="container">
+        <dl>
+            <dt>woman</dt>
+            <dd>outer</dd>
+            <dd>top</dd>
+            <dd>dress</dd>
+            <dd>bottom</dd>
+        </dl>
+        <dl>
+            <dt>man</dt>
+            <dd>outer</dd>
+            <dd>top</dd>
+            <dd>bottom</dd>
+        </dl>
+        <dl>
+            <dt>kids</dt>
+            <dd>outer</dd>
+            <dd>top</dd>
+            <dd>dress</dd>
+            <dd>bottom</dd>
+        </dl>
+    </div><!-- end container -->
+</nav>
+
+
+<!-- 메인 배너 -->
+<section id="main_banner">
+    <div class="inner">
+        <div class="bx-slider">
+            <img class="img_responsive" src="{% static 'images/banner1.jpg'%}" alt="1" title="여기에 배너 설명글을 작성">
+            <img class="img_responsive" src="{% static 'images/banner2.jpg'%}" alt="2">
+            <img class="img_responsive" src="{% static 'images/banner3.jpg'%}" alt="3">
+        </div>
+    </div><!-- end inner -->
+</section>
+
+<!-- 메인 콘텐츠 -->
+<section id="top_seller">
+    <div class="container"><!-- end container-->
+        <h2>MAN's Brand</h2>
+        <ul class="item_list">
+            <!-- 225x323 -->
+
+        </ul>
+    </div><!-- end container-->
+</section>
+
+<!-- woman's brand -->
+<section id="event">
+    <div class="container">
+        <h2>WOMAN's Brand</h2>
+        <ul class="best_list">
+            <li>
+                <a href="#">
+                    <img src="https://puls-img.lpl-cloud.com/c_limit,w_1400/q_auto:best,dpr_auto,f_auto/1648836056665-majorpushonedeskme2xjpg_900x2880_max_lg_lg.jpg"
+                         alt="woman1">
+                    <span class="title">EGOIST</span>
+                    <span class="name">슬림라인 하이넥 코드 EK4WC260</span>
+                    <del class="origin_price"></del>
+                    <ins class="sale_price">475,200원</ins>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="https://www.chanel.com/images//t_one//w_0.51,h_0.51,c_crop/q_auto:good,f_auto,fl_lossy,dpr_1.2/w_620/gabrielle-chanel-essence-eau-de-parfum-spray-3-4fl-oz--packshot-default-120630-8848376692766.jpg"
+                         alt="woman2">
+                    <span class="title">EGOIST</span>
+                    <span class="name">빅카라 벨티드 코트 EK4WC261</span>
+                    <del class="origin_price"></del>
+                    <ins class="sale_price">398,000원</ins>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{% static 'images/woman3.jpg'%}" alt="woman3">
+                    <span class="title">EGOIST</span>
+                    <span class="name">밴드넥 숏 코트 EK4WC262</span>
+                    <del class="origin_price"></del>
+                    <ins class="sale_price">598,000원</ins>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{% static 'images/woman4.jpg'%}" alt="woman4">
+                    <span class="title">EGOIST</span>
+                    <span class="name">롱플리츠 무스탕 EK4MC261</span>
+                    <del class="origin_price"></del>
+                    <ins class="sale_price">998,000원</ins>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{% static 'images/woman5.jpg'%}" alt="woman5">
+                    <span class="title">EGOIST</span>
+                    <span class="name">빅카라 더블 코트 EK4WC161</span>
+                    <del class="origin_price"></del>
+                    <ins class="sale_price">678,000원</ins>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<!-- 브랜드 추천 -->
+<section id="brand">
+    <div class="container">
+        <h2>브랜드 추천</h2>
+        <ul>
+            <li>
+                <!-- 이미지는 배경으로 처리 -->
+                <a href="#">
+                    <!--             <span class="title">Laurel</span> -->
+                    <i class="far fa-star"></i>
+                    <ul class="hash_tag">
+                        <li>#LAP</li>
+                        <li>#시즌오프</li>
+                        <li>#클리어런스</li>
+                        <li>#최대50%세일</li>
+                    </ul>
+                    <ul class="text">
+                        <li class="subject">이벤트</li>
+                        <li><h4>12월 카톡채널 이벤트!</h4></li>
+                        <li class="day">12.02~12.31</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <!-- 이미지는 배경으로 처리 -->
+                <a href="#">
+                    <!-- <span class="title">AMORE PACIFIC</span> -->
+                    <i class="far fa-star"></i>
+                    <ul class="hash_tag">
+                        <li>#유러피안</li>
+                        <li>#스타일</li>
+                        <li>#트렌드</li>
+                        <li>#플라스틱아일랜드</li>
+                    </ul>
+                    <ul class="text">
+                        <li class="subject">이벤트</li>
+                        <li><h4>겨울 아우터 구매 찬스</h4></li>
+                        <li class="day">12.19~12.31</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <!-- 이미지는 배경으로 처리 -->
+                <a href="#">
+                    <!-- <span class="title">IOPE</span> -->
+                    <i class="far fa-star"></i>
+                    <ul class="hash_tag">
+                        <li>#LAPCOS</li>
+                        <li>#글로벌</li>
+                        <li>#감각적인</li>
+                        <li>#페르소나</li>
+                    </ul>
+                    <ul class="text">
+                        <li class="subject">이벤트</li>
+                        <li><h4>크리스마스에 쿠폰이 올까요?</h4></li>
+                        <li class="day">12.17~12.23</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div><!-- end container -->
+</section>
+
+<footer id="main_footer">
+    <div class="inner_wrap">
+        <dl class="footer_notice">
+            <dt>
+            <dt><a href="#">공지사항</a></dt>
+            </dt>
+        </dl>
+        <ul class="icons">
+            <li><i class="fab fa-instagram"></i></li>
+            <li><i class="fab fa-facebook-square"></i></li>
+            <li><i class="fab fa-twitter"></i></li>
+        </ul>
+        <ul class="footer_menu">
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">멤버십 이용약관</a></li>
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">임직원서비스</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+        <div class="footer_info">
+            <p class="text">K mall | 서울특별시 용산구 한강대로 100(한강로2가) | K-mall@kmall.com | 080-1234-1234(쇼핑문의) |
+                080-4567-7890(제품문의)</p>
+            <!-- <p class="text">K-mall@kmall.com | 080-1234-1234(쇼핑문의) | 080-4567-7890(제품문의)</p> -->
+            <p class="text">대표이사:OOO | 사업자등록번호: 123-45-67891 | 통신판매업신고번호: 서울용산-1234호</p>
+            <p class="text2">개별 판매자가 입점하여 등록한 상품에 대한 광고, 상품주문, 배송,
+                환불의 의무와 책임은 각 입점판매자가 부담하고, 이에대하여 ㈜K mall은 통신판매중개자로서<br>
+                통신판매의 당사자가 아니므로 일체 책임을 지지 않습니다.</p>
+            <p class="copyright">Copyright &copy; by K-mall. All right Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<div id="modal_add_feed" class="modal_overlay">
+    <div class="modal_window">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mx-auto">
+                    <div>
+                        <div class="signup form ">
+                            <div class="logo mb-3">
+                                <div class="col-md-12 text-center">
+                                    <h1>Signup</h1>
+                                </div>
+                            </div>
+                            <form action="#" name="registration">
+
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" name="firstname" class="form-control" id="firstname"
+                                           placeholder="Enter Firstname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" name="lastname" class="form-control" id="lastname"
+                                           placeholder="Enter Lastname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailaddress">Email address</label>
+                                    <input type="email" name="email" class="form-control" id="email"
+                                           placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                           placeholder="Enter Password">
+                                </div>
+                                <div class="col-md-12 text-center mb-3">
+                                    <button type="submit" class=" btn btn-block mybtn btn-primary ">Sign Up</button>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <p class="text-center"><a href="" id="">Already have an account?</a></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+<script>
+    const modal = document.getElementById("modal_add_feed");
+    const buttonAddFeed = document.getElementById("add_feed");
+
+    buttonAddFeed.addEventListener("click", e => {
+        modal.style.display = "flex";
+        modal.style.top = window.pageYOffset + 'px';
+        document.body.style.overflowY = "hidden"; // 스크롤 없애기
+    });
+
+    const buttonCloseModal = document.getElementById("close_modal");
+        buttonCloseModal.addEventListener("click", e => {
+        modal.style.display = "none";
+        document.body.style.overflowY = "visible";
+    });
+
+
+</script>
+</html>
